@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор для розв'язування квадратних рівнянь</title>
+</head>
+<style>
+    #ans{
+        width: 20%;
+    }
+</style>
+<body>
+<h2>Калькулятор для розв'язування квадратних рівнянь</h2>
+<p>Введіть 3 коефіціента</p>
+<input id="a">
+<input id="b">
+<input id="c">
+<button type="button" onclick="myFunction()">Віднайти</button>
+<p id="ans"></p>
+<script>
+    let d = document;
+function myFunction() {
+  let a = d.getElementById("a").value,
+  b = d.getElementById("b").value,
+  c = d.getElementById("c").value;
+  let text;
+  if (isNaN(a) || isNaN(b) || isNaN(c)) {
+    text = "Це не число";
+  } else {
+    text = 'D = ' + String(b*b-4*a*c);
+    text += '<br>';
+    if (b*b-4*a*c>0){
+        text += 'x1 = ' + String((-b+Math.sqrt(b*b-4*a*c))/(2*a))
+        text += '<br>';
+        text += 'x2 = ' + String((-b-Math.sqrt(b*b-4*a*c))/(2*a))
+        if ((-b+Math.sqrt(b*b-4*a*c))/(2*a) != (-b-Math.sqrt(b*b-4*a*c))/(2*a)){
+            d.querySelector('#ans').style.background = 'green';
+            d.querySelector('#ans').style.color = 'white';
+        }else{
+            d.querySelector('#ans').style.background = 'yellow';
+            d.querySelector('#ans').style.color = 'white';
+        }
+    }else{
+        text += 'Рішення не має, бо дискримінант не може бути від\'ємним';
+        d.querySelector('#ans').style.background = 'red';
+        d.querySelector('#ans').style.color = 'white';
+    }
+  }
+  d.querySelector("#ans").innerHTML = text;
+}
+</script>
+</body>
+</html>

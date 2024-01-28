@@ -1,0 +1,7 @@
+print("Білка")
+Bilka = input("Введіть скільки всього білок: ")
+Gorix = input("Введіть скільки всього горіхів: ")
+Otr = int(Gorix) / int(Bilka)
+Zal = Otr - int(Otr)
+Zal = Zal * int(Bilka)
+print("Всього " + Bilka + " білкам досталося по: "+ str(int(Otr)) + " цілих горіхів. Залишилося після цього: " + str(Zal) + " або якщо рахувати цілі то: " + str(int(Zal)) + " горіхів.")
